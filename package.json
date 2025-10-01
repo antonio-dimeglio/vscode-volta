@@ -1,0 +1,25 @@
+{
+  "name": "vscode-volta",
+  "displayName": "vscode-volta",
+  "description": "A simple extension for the volta programming language.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.104.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "volta",
+      "aliases": ["Volta", "volta"],
+      "extensions": [".vlt"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "volta",
+      "scopeName": "source.volta",
+      "path": "./syntaxes/volta.tmLanguage.json"
+    }]
+  }
+}
