@@ -3,6 +3,7 @@
   "displayName": "vscode-volta",
   "description": "A simple extension for the volta programming language.",
   "version": "0.0.1",
+  "icon": "images/volta-icon.svg",
   "engines": {
     "vscode": "^1.104.0"
   },
@@ -14,7 +15,11 @@
       "id": "volta",
       "aliases": ["Volta", "volta"],
       "extensions": [".vlt"],
-      "configuration": "./language-configuration.json"
+      "configuration": "./language-configuration.json",
+      "icon": {
+        "light": "./images/volta-icon.svg",
+        "dark": "./images/volta-icon.svg"
+      }
     }],
     "grammars": [{
       "language": "volta",
