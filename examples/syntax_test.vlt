@@ -1,0 +1,109 @@
+# Volta Syntax Test File
+# This file tests all syntax highlighting features
+
+#[
+Multi-line comment
+Testing block comments
+]#
+
+# 1. Variables and Type Annotations
+x: int = 42
+y: float = 3.14
+name: str = "Alessandro"
+counter: mut int = 0
+pi: float = 3.14159e-10
+
+# 2. Basic Types
+a: int = 10
+b: float = 2.5
+c: bool = true
+d: str = "hello"
+
+# 3. Generic Types
+numbers: Array[int] = [1, 2, 3, 4, 5]
+maybe_value: Option[float] = Some(3.14)
+empty: Option[str] = None
+
+# 4. Functions
+fn add(a: int, b: int) -> int {
+    return a + b
+}
+
+fn square(x: float) -> float = x * x
+
+# 5. Function Types
+fn apply(f: fn(int) -> int, value: int) -> int {
+    return f(value)
+}
+
+fn transform(data: Array[float], mapper: fn(float) -> float) -> Array[float] {
+    return data.map(mapper)
+}
+
+# 6. Control Flow
+if x > 10 {
+    return x
+} else if x > 5 {
+    return x * 2
+} else {
+    return 0
+}
+
+# 7. Loops
+while counter < 10 {
+    counter = counter + 1
+}
+
+for i in range(10) {
+    print(i)
+}
+
+# 8. Match Expressions
+result := match x {
+    0 => "zero",
+    1 => "one",
+    _ => "other"
+}
+
+# 9. Logical Operators
+flag := true and false
+check := x > 5 or y < 10
+inverted := not flag
+
+# 10. Operators
+sum := 1 + 2
+diff := 10 - 5
+product := 3 * 4
+quotient := 20 / 4
+power := 2 ** 8
+modulo := 10 % 3
+
+# 11. Comparison
+equal := x == y
+not_equal := x != y
+less := x < y
+greater := x > y
+less_eq := x <= y
+greater_eq := x >= y
+
+# 12. Strings with Escapes
+message: str = "Hello, \"World\"!\n"
+path: str = "C:\\Users\\volta\\file.txt"
+
+# 13. Option Types
+fn divide(a: float, b: float) -> Option[float] {
+    if b == 0.0 {
+        return None
+    }
+    return Some(a / b)
+}
+
+# 14. Struct (future)
+struct Point {
+    x: float,
+    y: float
+}
+
+# 15. Import
+import math
+import stats

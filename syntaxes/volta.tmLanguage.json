@@ -3,20 +3,32 @@
   "name": "Volta",
   "scopeName": "source.volta",
   "patterns": [
-    { "include": "#keywords" },
-    { "include": "#booleans" },
-    { "include": "#numbers" },
-    { "include": "#strings" },
-    { "include": "#comments" },
-    { "include": "#operators" },
-    { "include": "#delimiters" }
+    { "include": "#comments" },        
+    { "include": "#strings" },         
+    { "include": "#function-types" },  
+    { "include": "#generic-types" },   
+    { "include": "#type-annotations" },
+    { "include": "#keywords" },        
+    { "include": "#types" },           
+    { "include": "#booleans" },        
+    { "include": "#numbers" },         
+    { "include": "#operators" },       
+    { "include": "#delimiters" }       
   ],
   "repository": {
     "keywords": {
       "patterns": [
         {
           "name": "keyword.control.volta",
-          "match": "\\b(fn|return|if|else|while|for|in|match|struct|mut|import|Some|None|let|some_keyword|none_keyword)\\b"
+          "match": "\\b(fn|return|if|else|while|for|in|match|struct|mut|import|Some|None|and|or|not)\\b"
+        }
+      ]
+    },
+    "types" : {
+      "patterns": [
+        {
+          "name" : "storage.type.volta",
+          "match" : "\\b(int|float|bool|str|Array|Option)\\b"
         }
       ]
     },
@@ -32,7 +44,7 @@
       "patterns": [
         {
           "name": "constant.numeric.volta",
-          "match": "\\b\\d+(\\.\\d+)?\\b"
+          "match": "\\d+(\\.\\d+)?([eE][+-]?\\d+)?"
         }
       ]
     },
@@ -48,16 +60,18 @@
       ]
     },
     "comments": {
+      
       "patterns": [
-        {
-          "name": "comment.line.volta",
-          "match": "#.*$"
-        },
         {
           "name": "comment.block.volta",
           "begin": "#\\[",
           "end": "\\]#"
+        },
+        {
+          "name": "comment.line.volta",
+          "match": "#.*$"
         }
+
       ]
     },
     "operators": {
@@ -83,6 +97,55 @@
           "match": "->|=>"
         }
       ]
+    },
+    "function-types": {
+      "patterns": [
+        {
+          "begin": "\\b(fn)\\s*(\\()",
+          "end": "(\\))\\s*(->)\\s*(\\w+)",
+          "beginCaptures": {
+            "1": { "name": "keyword.control.volta" },
+            "2": { "name": "punctuation.bracket.volta" }
+          },
+          "endCaptures": {
+            "1": { "name": "punctuation.bracket.volta" },
+            "2": { "name": "punctuation.arrow.volta" },
+            "3": { "name": "storage.type.volta" }
+          },
+          "patterns": [
+            { "include": "#types" },
+            {
+              "name": "punctuation.separator.volta",
+              "match": ","
+            }
+          ]
+        }
+      ]
+    },
+  "type-annotations": {
+    "patterns": [
+          {
+            "match": ":\\s*(mut\\s+)?(\\w+)",
+            "captures": {
+              "1": { "name": "keyword.control.volta" },
+              "2": { "name": "storage.type.volta" }
+            }
+          }
+      ]
     }
+  },
+  "generic-types": {
+    "begin": "(\\w+)(\\[)",
+    "end": "\\]",
+    "beginCaptures": {
+        "1": { "name": "storage.type.volta" },
+        "2": { "name": "punctuation.bracket.volta" }
+      },
+    "endCaptures": {
+        "0": { "name": "punctuation.bracket.volta" }
+      },
+    "patterns": [
+        { "include": "#types" }
+      ]
   }
 }
