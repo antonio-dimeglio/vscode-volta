@@ -107,3 +107,8 @@ struct Point {
 # 15. Import
 import math
 import stats
+
+fn test() -> int {
+    x: str = 5        # Type error: assigning int to str
+    return "hello"    # Type error: returning str instead of int
+}
