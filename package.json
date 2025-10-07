@@ -20,6 +20,10 @@
       "language": "volta",
       "scopeName": "source.volta",
       "path": "./syntaxes/volta.tmLanguage.json"
+    }],
+    "snippets": [{
+      "language": "volta",
+      "path": "./snippets/volta.json"
     }]
   }
 }

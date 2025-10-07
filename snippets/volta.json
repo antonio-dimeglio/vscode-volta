@@ -1,0 +1,209 @@
+{
+  "Function": {
+    "prefix": "fn",
+    "body": [
+      "fn ${1:name}(${2:param}: ${3:type}) -> ${4:returnType} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Create a function"
+  },
+  "Function Expression": {
+    "prefix": "fnexpr",
+    "body": [
+      "fn ${1:name}(${2:param}: ${3:type}) -> ${4:returnType} = $0"
+    ],
+    "description": "Create a single-expression function"
+  },
+  "Lambda Function": {
+    "prefix": "fnlambda",
+    "body": [
+      "fn(${1:param}: ${2:type}) -> ${3:returnType} = $0"
+    ],
+    "description": "Create a lambda function"
+  },
+  "If Statement": {
+    "prefix": "if",
+    "body": [
+      "if ${1:condition} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Create an if statement"
+  },
+  "If-Else Statement": {
+    "prefix": "ifelse",
+    "body": [
+      "if ${1:condition} {",
+      "\t${2}",
+      "} else {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Create an if-else statement"
+  },
+  "If-Else If": {
+    "prefix": "ifelif",
+    "body": [
+      "if ${1:condition} {",
+      "\t${2}",
+      "} else if ${3:condition} {",
+      "\t${4}",
+      "} else {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Create an if-else if-else statement"
+  },
+  "Match Expression": {
+    "prefix": "match",
+    "body": [
+      "match ${1:value} {",
+      "\t${2:pattern} => ${3:result},",
+      "\t_ => $0",
+      "}"
+    ],
+    "description": "Create a match expression"
+  },
+  "For Loop": {
+    "prefix": "for",
+    "body": [
+      "for ${1:item} in ${2:iterator} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Create a for loop"
+  },
+  "For Range Loop": {
+    "prefix": "forrange",
+    "body": [
+      "for ${1:i} in range(${2:n}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Create a for loop with range"
+  },
+  "While Loop": {
+    "prefix": "while",
+    "body": [
+      "while ${1:condition} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Create a while loop"
+  },
+  "Variable Declaration": {
+    "prefix": "var",
+    "body": [
+      "${1:name}: ${2:type} = $0"
+    ],
+    "description": "Create a variable with type annotation"
+  },
+  "Mutable Variable": {
+    "prefix": "mutvar",
+    "body": [
+      "${1:name}: mut ${2:type} = $0"
+    ],
+    "description": "Create a mutable variable"
+  },
+  "Inferred Variable": {
+    "prefix": "let",
+    "body": [
+      "${1:name} := $0"
+    ],
+    "description": "Create a variable with type inference"
+  },
+  "Struct Definition": {
+    "prefix": "struct",
+    "body": [
+      "struct ${1:Name} {",
+      "\t${2:field}: ${3:type},$0",
+      "}"
+    ],
+    "description": "Create a struct"
+  },
+  "Array Literal": {
+    "prefix": "array",
+    "body": [
+      "[${1:element}$0]"
+    ],
+    "description": "Create an array literal"
+  },
+  "Array Declaration": {
+    "prefix": "arraydef",
+    "body": [
+      "${1:name}: Array[${2:type}] = [$0]"
+    ],
+    "description": "Create an array with type"
+  },
+  "Option Some": {
+    "prefix": "some",
+    "body": [
+      "Some($0)"
+    ],
+    "description": "Create Some variant"
+  },
+  "Option None": {
+    "prefix": "none",
+    "body": [
+      "None"
+    ],
+    "description": "Create None variant"
+  },
+  "Option Type": {
+    "prefix": "option",
+    "body": [
+      "${1:name}: Option[${2:type}] = $0"
+    ],
+    "description": "Create Option type variable"
+  },
+  "Map Operation": {
+    "prefix": "map",
+    "body": [
+      "${1:array}.map(fn(${2:x}: ${3:type}) -> ${4:type} = $0)"
+    ],
+    "description": "Create a map operation"
+  },
+  "Filter Operation": {
+    "prefix": "filter",
+    "body": [
+      "${1:array}.filter(fn(${2:x}: ${3:type}) -> bool = $0)"
+    ],
+    "description": "Create a filter operation"
+  },
+  "Reduce Operation": {
+    "prefix": "reduce",
+    "body": [
+      "${1:array}.reduce(fn(${2:acc}: ${3:type}, ${4:x}: ${5:type}) -> ${6:type} = $0, ${7:initial})"
+    ],
+    "description": "Create a reduce operation"
+  },
+  "Import Statement": {
+    "prefix": "import",
+    "body": [
+      "import ${1:module}$0"
+    ],
+    "description": "Import a module"
+  },
+  "Type Alias": {
+    "prefix": "type",
+    "body": [
+      "type ${1:Name} = ${2:Type}$0"
+    ],
+    "description": "Create a type alias"
+  },
+  "Print Statement": {
+    "prefix": "print",
+    "body": [
+      "print($0)"
+    ],
+    "description": "Print to console"
+  },
+  "Return Statement": {
+    "prefix": "ret",
+    "body": [
+      "return $0"
+    ],
+    "description": "Return statement"
+  }
+}
