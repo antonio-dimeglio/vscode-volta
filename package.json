@@ -3,17 +3,14 @@
   "displayName": "vscode-volta",
   "description": "A simple extension for the volta programming language.",
   "version": "0.0.1",
-  "icon": "images/volta-icon.svg",
+  "icon": "images/volta-icon.png",
   "engines": {
     "vscode": "^1.104.0"
   },
   "categories": [
     "Programming Languages"
   ],
-  "activationEvents": [
-    "onLanguage:volta"
-  ],
-  "main": "./out/client/extension.js",
+  "main": "./dist/client/extension.js",
   "contributes": {
     "languages": [
       {
@@ -55,7 +52,11 @@
         },
         "volta.trace.server": {
           "type": "string",
-          "enum": ["off", "messages", "verbose"],
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
           "default": "off",
           "description": "Traces the communication between VS Code and the language server."
         }
@@ -63,9 +64,10 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -b",
-    "watch": "tsc -b -w",
+    "vscode:prepublish": "npm run esbuild-base -- --minify",
+    "compile": "npm run esbuild-base -- --sourcemap",
+    "watch": "npm run esbuild-base -- --sourcemap --watch",
+    "esbuild-base": "esbuild ./src/client/extension.ts ./src/server/server.ts --bundle --outdir=dist --external:vscode --format=cjs --platform=node",
     "lint": "eslint ./src --ext .ts",
     "pretest": "npm run compile"
   },
@@ -88,6 +90,8 @@
   "devDependencies": {
     "@types/node": "^24.7.0",
     "@types/vscode": "^1.104.0",
+    "@vscode/vsce": "^3.6.2",
+    "esbuild": "^0.25.10",
     "typescript": "^5.9.3"
   }
 }

@@ -139,16 +139,16 @@
   "Option Some": {
     "prefix": "some",
     "body": [
-      "Some($0)"
+      "Option.Some($0)"
     ],
-    "description": "Create Some variant"
+    "description": "Create Option.Some variant"
   },
   "Option None": {
     "prefix": "none",
     "body": [
-      "None"
+      "Option.None"
     ],
-    "description": "Create None variant"
+    "description": "Create Option.None variant"
   },
   "Option Type": {
     "prefix": "option",
@@ -205,5 +205,39 @@
       "return $0"
     ],
     "description": "Return statement"
+  },
+  "Enum Definition": {
+    "prefix": "enum",
+    "body": [
+      "enum ${1:Name} {",
+      "\t${2:Variant},$0",
+      "}"
+    ],
+    "description": "Create a simple enum"
+  },
+  "Generic Enum": {
+    "prefix": "enumgeneric",
+    "body": [
+      "enum ${1:Name}[${2:T}] {",
+      "\t${3:Variant}(${2:T}),$0",
+      "}"
+    ],
+    "description": "Create a generic enum"
+  },
+  "Enum with Data": {
+    "prefix": "enumdata",
+    "body": [
+      "enum ${1:Name} {",
+      "\t${2:Variant}(${3:type}),$0",
+      "}"
+    ],
+    "description": "Create an enum with associated data"
+  },
+  "Result Type": {
+    "prefix": "result",
+    "body": [
+      "${1:name}: Result[${2:T}, ${3:E}] = $0"
+    ],
+    "description": "Create Result type variable"
   }
 }

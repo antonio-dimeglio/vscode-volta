@@ -20,7 +20,7 @@
       "patterns": [
         {
           "name": "keyword.control.volta",
-          "match": "\\b(fn|return|if|else|while|for|in|match|struct|mut|import|Some|None|and|or|not)\\b"
+          "match": "\\b(fn|return|if|else|while|for|in|match|struct|enum|mut|import|and|or|not|break|continue)\\b"
         }
       ]
     },
@@ -60,8 +60,22 @@
       ]
     },
     "comments": {
-      
       "patterns": [
+        {
+          "name": "comment.block.documentation.volta",
+          "begin": "#\\[doc\\]",
+          "end": "#\\[/doc\\]",
+          "patterns": [
+            {
+              "name": "storage.type.class.doxygen.volta",
+              "match": "@(param|returns|field|example|throws)\\b"
+            },
+            {
+              "name": "variable.parameter.volta",
+              "match": "(?<=@param)\\s+\\w+"
+            }
+          ]
+        },
         {
           "name": "comment.block.volta",
           "begin": "#\\[",
@@ -71,7 +85,6 @@
           "name": "comment.line.volta",
           "match": "#.*$"
         }
-
       ]
     },
     "operators": {

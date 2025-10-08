@@ -1,0 +1,55 @@
+# Volta Documentation Test File
+# Tests the new documentation system
+
+#[doc]
+# Calculates the sum of two integers.
+#
+# @param x - The first number to add
+# @param y - The second number to add
+# @returns The sum of x and y
+# @example
+#   result := add(5, 3)  # Returns 8
+#   result := add(10, -5) # Returns 5
+#[/doc]
+fn add(x: int, y: int) -> int {
+    return x + y
+}
+
+#[doc]
+# Represents a 2D point in space.
+#
+# @field x - The x coordinate (horizontal position)
+# @field y - The y coordinate (vertical position)
+#[/doc]
+struct Point {
+    x: float,
+    y: float
+}
+
+#[doc]
+# Calculates the distance between two points.
+#
+# @param p1 - The first point
+# @param p2 - The second point
+# @returns The Euclidean distance between the points
+#[/doc]
+fn distance(p1: Point, p2: Point) -> float {
+    dx := p1.x - p2.x
+    dy := p1.y - p2.y
+    return math.sqrt(dx * dx + dy * dy)
+}
+
+#[doc]
+# Divides two numbers safely.
+#
+# @param a - The numerator
+# @param b - The denominator
+# @returns Some(result) if b is not zero, None otherwise
+# @throws Returns None when dividing by zero
+#[/doc]
+fn safe_divide(a: float, b: float) -> Option[float] {
+    if b == 0.0 {
+        return None
+    }
+    return Some(a / b)
+}

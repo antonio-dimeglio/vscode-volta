@@ -1,1 +1,1 @@
-{"root":["./src/client/extension.ts","./src/server/compilerPath.ts","./src/server/server.ts","./src/server/voltaCompiler.ts"],"version":"5.9.3"}
+{"root":["./src/client/extension.ts","./src/server/compilerInterface.ts","./src/server/compilerPath.ts","./src/server/server.ts","./src/server/voltaCompiler.ts"],"version":"5.9.3"}

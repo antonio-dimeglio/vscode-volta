@@ -299,7 +299,9 @@ result := divide(10.0, 2.0)
     .unwrap_or(0.0)
 ```
 
-## Comments
+## Comments and Documentation
+
+### Regular Comments
 
 ```volta
 # Single-line comment
@@ -310,9 +312,47 @@ comment
 ]#
 ```
 
+### Documentation Comments
+
+Volta uses `#[doc]` ... `#[/doc]` blocks for documentation that can be extracted by tooling and displayed in IDEs.
+
+```volta
+#[doc]
+# Calculates the sum of two integers.
+#
+# @param x - The first number
+# @param y - The second number
+# @returns The sum of x and y
+# @example
+#   result := calculate(5, 3)  # Returns 8
+#[/doc]
+fn calculate(x: int, y: int) -> int {
+    return x + y
+}
+
+#[doc]
+# Represents a 2D point in space.
+#
+# @field x - The x coordinate (in pixels)
+# @field y - The y coordinate (in pixels)
+#[/doc]
+struct Point {
+    x: float,
+    y: float
+}
+```
+
+### Documentation Tags
+
+- `@param name - description` - Documents a function parameter
+- `@returns description` - Documents the return value
+- `@field name - description` - Documents a struct field
+- `@example` - Provides usage examples
+- `@throws description` - Documents potential errors (future feature)
+
 ## Keywords
 
-`fn`, `return`, `if`, `else`, `while`, `for`, `in`, `match`, `struct`, `import`, `mut`, `true`, `false`, `Some`, `None`, `and`, `or`, `not`
+`fn`, `return`, `if`, `else`, `while`, `for`, `in`, `match`, `struct`, `import`, `mut`, `type`, `true`, `false`, `Some`, `None`, `and`, `or`, `not`
 
 ## Operators
 
