@@ -20,7 +20,7 @@
       "patterns": [
         {
           "name": "keyword.control.volta",
-          "match": "\\b(fn|return|if|else|while|for|in|match|struct|enum|mut|import|and|or|not|break|continue)\\b"
+          "match": "\\b(fn|return|if|else|while|for|in|match|struct|enum|let|mut|import|and|or|not|break|continue)\\b"
         }
       ]
     },
@@ -28,7 +28,7 @@
       "patterns": [
         {
           "name" : "storage.type.volta",
-          "match" : "\\b(int|float|bool|str|Array|Option)\\b"
+          "match" : "\\b(i8|i16|i32|i64|u8|u16|u32|u64|f16|f32|f64|f8|bool|str|Array|Option|int|float)\\b"
         }
       ]
     },
@@ -43,8 +43,12 @@
     "numbers": {
       "patterns": [
         {
-          "name": "constant.numeric.volta",
-          "match": "\\d+(\\.\\d+)?([eE][+-]?\\d+)?"
+          "name": "constant.numeric.float.volta",
+          "match": "\\b\\d+\\.\\d+([eE][+-]?\\d+)?\\b"
+        },
+        {
+          "name": "constant.numeric.integer.volta",
+          "match": "\\b\\d+([eE][+-]?\\d+)?\\b"
         }
       ]
     },
